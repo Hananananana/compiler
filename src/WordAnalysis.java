@@ -1,8 +1,7 @@
+import java.io.*;
+
 public class WordAnalysis {
-//    private String SYM;
-//    private String ID;
-//    private Integer NUM;
-    private final char[] alphabet= {';',':','=','+','-','/','#','<','>','{','}','(',')','0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+    private final char[] alphabet= {'.',',',';',':','=','+','-','/','#','<','>','{','}','(',')','0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
     private final String[] keywords = {"const","var","procedure","begin","end","odd","if","then","call","while","do","read","write"};
     private String text;
     private int pointer;
@@ -10,8 +9,28 @@ public class WordAnalysis {
 
     public WordAnalysis(){}
 
-    public WordAnalysis(String text){
-        this.text = text;
+    public WordAnalysis(String fileName) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        String root = System.getProperty("user.dir");
+        String FileName="code.txt";
+        String filePath = root+ File.separator+"src"+ File.separator+FileName;
+        FileReader fileReader = null;
+        try {
+            fileReader = new FileReader(filePath);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("文件未找到");
+            System.exit(-1);
+        }
+        BufferedReader reader  = new BufferedReader(fileReader);
+        while(true){
+            int ch = reader.read();
+            if(ch<0)
+                break;
+            sb.append((char)ch);
+        }
+        this.text = sb.toString();
+        System.out.println(text);
         length = text.length();
         pointer = 0;//下一个要取的下标
     }
@@ -23,7 +42,7 @@ public class WordAnalysis {
             ch = getCh();
         } while (isSpace(ch));
 //        读到结束
-        if(ch == '@')
+        if(ch == (char)-1)
             return WordInfo.end();
 //        读首字符
         StringBuilder sb = new StringBuilder();
@@ -71,7 +90,7 @@ public class WordAnalysis {
                     break;
             }
 //            入读的不是@
-            if(ch != '@'){
+            if(ch != (char)-1){
                 pointer--;
             }
             WordInfo res = new WordInfo();
@@ -125,7 +144,7 @@ public class WordAnalysis {
     }
 
     private boolean isSpace(char ch){
-        return ch == ' '|| ch == '\t' || ch == '\n';
+        return ch == ' '|| ch == '\t' || ch == '\n' || ch == '\r';
     }
 
     private boolean isSymbol(char ch){
@@ -152,11 +171,11 @@ public class WordAnalysis {
 
     /**
      *
-     * @return @为没有字符（到头了）
+     * @return -1为没有字符（到头了）
      */
     private char getCh(){
         if(pointer == length)
-            return '@';
+            return (char)-1;
         char ch = text.charAt(pointer);
         pointer++;
         return ch;
