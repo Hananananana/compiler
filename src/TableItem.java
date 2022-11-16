@@ -6,7 +6,7 @@ public class TableItem {
 
     public Kind kind;
 
-    public Integer level;
+    public Integer level_val;
 
     public Integer adr;
 
@@ -26,12 +26,12 @@ public class TableItem {
         this.kind = kind;
     }
 
-    public Integer getLevel() {
-        return level;
+    public Integer getLevel_val() {
+        return level_val;
     }
 
-    public void setLevel(Integer level) {
-        this.level = level;
+    public void setLevel_val(Integer level_val) {
+        this.level_val = level_val;
     }
 
     public Integer getAdr() {
@@ -39,6 +39,19 @@ public class TableItem {
     }
 
     public void setAdr(Integer adr) {
+        this.adr = adr;
+    }
+
+    public TableItem(String name, Kind kind, Integer level_val) {
+        this.name = name;
+        this.kind = kind;
+        this.level_val = level_val;
+    }
+
+    public TableItem(String name, Kind kind, Integer level_val, Integer adr) {
+        this.name = name;
+        this.kind = kind;
+        this.level_val = level_val;
         this.adr = adr;
     }
 }

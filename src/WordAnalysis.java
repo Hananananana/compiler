@@ -1,7 +1,7 @@
 import java.io.*;
 
 public class WordAnalysis {
-    private final char[] alphabet= {'.',',',';',':','=','+','-','/','#','<','>','{','}','(',')','0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+    private final char[] alphabet= {'.',',',';',':','*','=','+','-','/','#','<','>','{','}','(',')','0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
     private final String[] keywords = {"const","var","procedure","begin","end","odd","if","then","call","while","do","read","write"};
     private String text;
     private int pointer;
@@ -30,7 +30,7 @@ public class WordAnalysis {
             sb.append((char)ch);
         }
         this.text = sb.toString();
-        System.out.println(text);
+//        System.out.println(text);
         length = text.length();
         pointer = 0;//下一个要取的下标
     }
