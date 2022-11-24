@@ -1,0 +1,25 @@
+1 : Code{op=JMP, l=0, a=8}
+2 : Code{op=INT, l=0, a=3}
+3 : Code{op=LOD, l=1, a=3}
+4 : Code{op=LIT, l=0, a=10}
+5 : Code{op=OPR, l=0, a=2}
+6 : Code{op=STO, l=1, a=4}
+7 : Code{op=OPR, l=0, a=0}
+8 : Code{op=INT, l=0, a=5}
+9 : Code{op=OPR, l=0, a=16}
+10 : Code{op=STO, l=0, a=3}
+11 : Code{op=LOD, l=0, a=3}
+12 : Code{op=LIT, l=0, a=0}
+13 : Code{op=OPR, l=0, a=9}
+14 : Code{op=JPC, l=0, a=24}
+15 : Code{op=CAL, l=0, a=2}
+16 : Code{op=LIT, l=0, a=2}
+17 : Code{op=LOD, l=0, a=4}
+18 : Code{op=OPR, l=0, a=4}
+19 : Code{op=OPR, l=0, a=14}
+20 : Code{op=OPR, l=0, a=15}
+21 : Code{op=OPR, l=0, a=16}
+22 : Code{op=STO, l=0, a=3}
+23 : Code{op=JMP, l=0, a=11}
+24 : Code{op=OPR, l=0, a=0}
+

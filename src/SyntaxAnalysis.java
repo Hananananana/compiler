@@ -128,7 +128,7 @@ public class SyntaxAnalysis {
     }
 
 /**
-    <语句> → <赋值语句>|<条件语句>|<当型循环语句>|<过程调用语句>|<读语句>|<写语句>|<复合语句>|<空>
+ *  <语句> → <赋值语句>|<条件语句>|<当型循环语句>|<过程调用语句>|<读语句>|<写语句>|<复合语句>|<空>
  *
  */
     void statement(int level,int tx){
@@ -573,6 +573,10 @@ TableItem procedureHead(int level, int tx){
         codes.forEach(item ->{
             System.out.println(codes.indexOf(item)+1+" : "+item);
         });
+    }
+
+    public List<Code> getCodes() {
+        return codes;
     }
 
     public static void main(String[] args) throws IOException {
